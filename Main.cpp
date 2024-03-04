@@ -144,114 +144,54 @@ static void NPSS_reference_signal(fftw_complex NPSS_reference_sequence[1508])
 
     //include cycle prefix
 
-    for (int i = 0, j = 119; i < 9; i++, j++) {
+    struct Reference
+{
+    int Start;
+    int End;
+    int Init;
+    Reference(int start, int end, int init)
+    {
+        Start = Start;
+        End = end;
+        Init = init;
+    }
+
+}
+
+List<Reference> refs = new Reference
+{
+    new Reference(0, 9, 119),
+    new Reference(9, 137, 0),
+    new Reference(137, 146, 247),
+    new Reference(146, 274, 128),
+    new Reference(275, 283, 375),
+    new Reference(284, 411, 256),
+    new Reference(411, 420, 503),
+    new Reference(420, 548, 384),
+    new Reference(548, 558, 630),
+    new Reference(558, 686, 512),
+    new Reference(686, 695, 759),
+    new Reference(695, 823, 640),
+    new Reference(823, 832, 887),
+    new Reference(832, 960, 768),
+    new Reference(960, 969, 1015),
+    new Reference(969, 1097, 896),
+    new Reference(1097, 1106, 1143),
+    new Reference(1106, 1234, 1024),
+    new Reference(1234, 1243, 1271),
+    new Reference(1243, 1371, 1152),
+    new Reference(1371, 1380, 1399),
+    new Reference(1380, 1508, 1280)
+    };
+}
+
+foreach (var reference in refs)
+{
+    for (int i = refs.Start, j = refs.Init; i < refs.End; i++, j++)
+    {
         NPSS_reference_sequence[i][0] = ofdm[j][0];
         NPSS_reference_sequence[i][1] = ofdm[j][1];
     }
-
-    for (int i = 9, j = 0; i < 137; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-
-    for (int i = 137, j = 247; i < 146; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 146, j = 128; i < 274; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 275, j = 375; i < 283; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 284, j = 256; i < 411; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 411, j = 503; i < 420; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 420, j = 384; i < 548; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 548, j = 630; i < 558; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 558, j = 512; i < 686; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 686, j = 759; i < 695; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 695, j = 640; i < 823; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 823, j = 887; i < 832; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 832, j = 768; i < 960; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 960, j = 1015; i < 969; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 969, j = 896; i < 1097; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 1097, j = 1143; i < 1106; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 1106, j = 1024; i < 1234; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 1234, j = 1271; i < 1243; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 1243, j = 1152; i < 1371; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 1371, j = 1399; i < 1380; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
-
-    for (int i = 1380, j = 1280; i < 1508; i++, j++) {
-        NPSS_reference_sequence[i][0] = ofdm[j][0];
-        NPSS_reference_sequence[i][1] = ofdm[j][1];
-    }
+}
+return NPSS_reference_sequence;
 }
